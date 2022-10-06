@@ -1,4 +1,4 @@
-const ImagePopup = () => {
+const ImagePopup = (props) => {
 	return (
 		<div>
 			<div className="popup popup_image">
@@ -7,6 +7,7 @@ const ImagePopup = () => {
 						className="popup__close popup__close_image"
 						type="button"
 						aria-label="закрыть окно"
+						onClose={props.onClose}
 					></button>
 
 					<img src="src/components/App" alt="#" className="popup__image"/>
