@@ -1,6 +1,6 @@
 import PopupWithForm from './PopupWithForm';
 
-const PopupDeleteConfirm = (props) => {
+const PopupDeleteConfirm = ({isOpen, onClose}) => {
 	return (
 		<div>
 			<PopupWithForm
@@ -8,8 +8,8 @@ const PopupDeleteConfirm = (props) => {
 				title="Вы уверены?"
 				button="Да"
 				children={<></>}
-				isOpen={props.isOpen}
-				onClose={props.onClose}
+				isOpen={isOpen}
+				onClose={onClose}
 			/>
 		</div>
 	);

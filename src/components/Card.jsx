@@ -1,6 +1,6 @@
-const Card = (props) => {
+const Card = ({card, onCardClick, onCardDelete}) => {
 	const handleCardClick = () => {
-		props.onCardClick(props.card);
+		onCardClick(card);
 	};
 
 	return (
@@ -9,25 +9,25 @@ const Card = (props) => {
 				<button
 					aria-label="удалить карту"
 					className="cards__delete"
-					onClick={props.onCardDelete}
+					onClick={onCardDelete}
 				></button>
 				<img
-					src={props.card.link}
-					alt={props.card.name}
+					src={card.link}
+					alt={card.name}
 					id=""
 					className="cards__image"
 					onClick={handleCardClick}
 				/>
 				<div className="cards__text">
-					<h2 className="cards__title">{props.card.name}</h2>
+					<h2 className="cards__title">{card.name}</h2>
 					<div className="cards__like_container">
 						<button
 							className="cards__like"
 							type="button"
 							aria-label="поставить лайк"
-						></button>
+						/>
 						<span className="cards__like_count">
-							{props.card.likes.length}
+							{card.likes.length}
 						</span>
 					</div>
 				</div>

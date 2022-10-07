@@ -1,30 +1,27 @@
 import PopupWithForm from './PopupWithForm';
 
-const PopupEditAvatar = (props) => {
+const PopupEditAvatar = ({isOpen, onClose}) => {
 	return (
 		<div>
 			<PopupWithForm
 				name="avatar"
 				title="Обновить аватар"
 				button="Сохранить"
-				children={
-					<>
-						<input
-							aria-label="Обновить аватар"
-							type="url"
-							className="popup__input popup__input_type_avatar"
-							name="avatar"
-							id="avatar-link"
-							placeholder="Ссылка"
-							required
-						/>
+				isOpen={isOpen}
+				onClose={onClose}
+			>
+				<input
+					aria-label="Обновить аватар"
+					type="url"
+					className="popup__input popup__input_type_avatar"
+					name="avatar"
+					id="avatar-link"
+					placeholder="Ссылка"
+					required
+				/>
 
-						<span className="popup__error avatar-link-error"></span>
-					</>
-				}
-				isOpen={props.isOpen}
-				onClose={props.onClose}
-			/>
+				<span className="popup__error avatar-link-error"></span>
+			</PopupWithForm>
 		</div>
 	);
 };

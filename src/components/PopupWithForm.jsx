@@ -1,9 +1,9 @@
-const PopupWithForm = (props) => {
+const PopupWithForm = ({name, title, button, children, isOpen, onClose}) => {
 	return (
 		<div>
 			<div
-				className={`popup popup_${props.name} ${
-					props.isOpen ? 'popup_opened' : ''
+				className={`popup popup_${name} ${
+					isOpen ? 'popup_opened' : ''
 				}`}
 			>
 				<div className="popup__container popup__container_add">
@@ -11,21 +11,21 @@ const PopupWithForm = (props) => {
 						className="popup__close popup__close_add"
 						type="button"
 						aria-label="закрыть окно"
-						onClick={props.onClose}
+						onClick={onClose}
 					></button>
 
-					<h2 className="popup__title">{props.title}</h2>
+					<h2 className="popup__title">{title}</h2>
 
-					<form className={`popup__form`} name={props.name} noValidate>
-						{props.children}
+					<form className={`popup__form`} name={name} noValidate>
+						{children}
 
 						<button
 							disabled
 							className="popup__save-button"
 							type="submit"
-							aria-label={`${props.button}`}
+							aria-label={`${button}`}
 						>
-							{props.button}
+							{button}
 						</button>
 					</form>
 				</div>

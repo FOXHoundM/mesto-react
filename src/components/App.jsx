@@ -65,25 +65,6 @@ function App() {
 				isOpen={isConfirmPopupOpen}
 				onClose={closeAllPopups}
 			/>
-
-			{/*<template className="template">*/}
-
-			{/*	<li className="cards">*/}
-			{/*		<button aria-label="удалить карту" className="cards__delete"></button>*/}
-			{/*		<img src="src/components/App" alt="" id="" className="cards__image"/>*/}
-			{/*		<div className="cards__text">*/}
-			{/*			<h2 className="cards__title"></h2>*/}
-			{/*			<div className="cards__like_container">*/}
-			{/*				<button*/}
-			{/*					className="cards__like"*/}
-			{/*					type="button"*/}
-			{/*					aria-label="поставить лайк"*/}
-			{/*				></button>*/}
-			{/*				<span className="cards__like_count"></span>*/}
-			{/*			</div>*/}
-			{/*		</div>*/}
-			{/*	</li>*/}
-			{/*</template>*/}
 		</div>
 	);
 }

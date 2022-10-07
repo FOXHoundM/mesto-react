@@ -10,7 +10,7 @@ const api = new Api({
 	},
 });
 
-const Main = (props) => {
+const Main = ({onCardDelete, onCardClick, onAddPlace, onEditAvatar, onEditProfile}) => {
 	const [userName, setUserName] = useState('');
 	const [userAvatar, setUserAvatar] = useState('');
 	const [userDescription, setUserDescription] = useState('');
@@ -44,7 +44,7 @@ const Main = (props) => {
 				<section className="profile">
 					<div
 						className="profile__avatar"
-						onClick={props.onEditAvatar}
+						onClick={onEditAvatar}
 						style={{ backgroundImage: `url(${userAvatar.avatar})` }}
 					></div>
 
@@ -55,7 +55,7 @@ const Main = (props) => {
 							className="profile__edit-button"
 							type="button"
 							aria-label="Редактировать профиль"
-							onClick={props.onEditProfile}
+							onClick={onEditProfile}
 						></button>
 					</div>
 
@@ -63,7 +63,7 @@ const Main = (props) => {
 						className="profile__add-button"
 						type="button"
 						aria-label="Добавить фото"
-						onClick={props.onAddPlace}
+						onClick={onAddPlace}
 					></button>
 				</section>
 
@@ -73,8 +73,8 @@ const Main = (props) => {
 							<Card
 								key={item._id}
 								card={item}
-								onCardClick={props.onCardClick}
-								onCardDelete={props.onCardDelete}
+								onCardClick={onCardClick}
+								onCardDelete={onCardDelete}
 							/>
 						))}
 					</ul>
