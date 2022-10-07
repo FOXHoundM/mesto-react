@@ -1,8 +1,7 @@
 const Card = (props) => {
-
 	const handleCardClick = () => {
 		props.onCardClick(props.card);
-	}
+	};
 
 	return (
 		<div>

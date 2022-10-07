@@ -5,39 +5,43 @@ import ImagePopup from './ImagePopup';
 import PopupAddPlace from './PopupAddPlace';
 import PopupEditProfile from './PopupEditProfile';
 import PopupEditAvatar from './PopupEditAvatar';
-import React, {useState} from 'react';
-import PopupDeleteConfirm from "./PopupDeleteConfirm";
+import React, { useState } from 'react';
+import PopupDeleteConfirm from './PopupDeleteConfirm';
 
 function App() {
 	const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
 	const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
 	const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-	const [isConfirmPopupOpen, setIsConfirmPopupOpen] = useState(false)
-	const [selectedCard, setSelectedCard] = useState({state: false, src:''})
+	const [isConfirmPopupOpen, setIsConfirmPopupOpen] = useState(false);
+	const [selectedCard, setSelectedCard] = useState({ state: false, src: '' });
 
 	const handleEditProfileClick = () => {
-		setIsEditProfilePopupOpen(true);
-	}, handleAddPlaceClick = () => {
-		setIsAddPlacePopupOpen(true);
-	}, handleEditAvatarClick = () => {
-		setIsEditAvatarPopupOpen(true);
-	}, handleDeleteConfirmClick = () => {
-		setIsConfirmPopupOpen(true)
-	}, handleCardClick = (props) => {
-		setSelectedCard({state: true, src: props.link, name: props.name})
-	};
-
+			setIsEditProfilePopupOpen(true);
+		},
+		handleAddPlaceClick = () => {
+			setIsAddPlacePopupOpen(true);
+		},
+		handleEditAvatarClick = () => {
+			setIsEditAvatarPopupOpen(true);
+		},
+		handleDeleteConfirmClick = () => {
+			setIsConfirmPopupOpen(true);
+		},
+		handleCardClick = (props) => {
+			setSelectedCard({ state: true, src: props.link, name: props.name });
+		};
 
 	const closeAllPopups = () => {
 		setIsEditProfilePopupOpen(false);
 		setIsAddPlacePopupOpen(false);
 		setIsEditAvatarPopupOpen(false);
-		setIsConfirmPopupOpen(false)
-		setSelectedCard({state: false, src:''});
+		setIsConfirmPopupOpen(false);
+		setSelectedCard({ state: false, src: '' });
 	};
 
-	return (<div className="App">
-			<Header/>
+	return (
+		<div className="App">
+			<Header />
 			<Main
 				onEditProfile={handleEditProfileClick}
 				onAddPlace={handleAddPlaceClick}
@@ -45,8 +49,8 @@ function App() {
 				onCardClick={handleCardClick}
 				onCardDelete={handleDeleteConfirmClick}
 			/>
-			<Footer/>
-			<PopupAddPlace isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}/>
+			<Footer />
+			<PopupAddPlace isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
 			<PopupEditProfile
 				isOpen={isEditProfilePopupOpen}
 				onClose={closeAllPopups}
@@ -55,9 +59,12 @@ function App() {
 				isOpen={isEditAvatarPopupOpen}
 				onClose={closeAllPopups}
 			/>
-			<ImagePopup card={selectedCard} onClose={closeAllPopups}/>
+			<ImagePopup card={selectedCard} onClose={closeAllPopups} />
 
-			<PopupDeleteConfirm isOpen={isConfirmPopupOpen} onClose={closeAllPopups} />
+			<PopupDeleteConfirm
+				isOpen={isConfirmPopupOpen}
+				onClose={closeAllPopups}
+			/>
 
 			{/*<template className="template">*/}
 
@@ -77,7 +84,8 @@ function App() {
 			{/*		</div>*/}
 			{/*	</li>*/}
 			{/*</template>*/}
-		</div>);
+		</div>
+	);
 }
 
 export default App;

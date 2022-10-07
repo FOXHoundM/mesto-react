@@ -1,7 +1,11 @@
 const ImagePopup = (props) => {
 	return (
 		<div>
-			<div className={`popup popup_image ${props.card.state ? ('popup_opened') : ('')}`}>
+			<div
+				className={`popup popup_image ${
+					props.card.state ? 'popup_opened' : ''
+				}`}
+			>
 				<div className="popup__container popup__container_image">
 					<button
 						className="popup__close popup__close_image"
