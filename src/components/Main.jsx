@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import api from '../utils/Api';
 import Card from './Card';
+import Api from "../utils/Api";
+
+const api = new Api({
+	url: 'https://mesto.nomoreparties.co/v1/cohort-50',
+	headers: {
+		authorization: '1d5fb42f-083e-4754-bc11-0941caf4871f',
+		'Content-type': 'application/json',
+	},
+});
 
 const Main = (props) => {
 	const [userName, setUserName] = useState('');
