@@ -1,18 +1,18 @@
 const ImagePopup = (props) => {
 	return (
 		<div>
-			<div className="popup popup_image">
+			<div className={`popup popup_image ${props.card.state ? ('popup_opened') : ('')}`}>
 				<div className="popup__container popup__container_image">
 					<button
 						className="popup__close popup__close_image"
 						type="button"
 						aria-label="закрыть окно"
-						onClose={props.onClose}
+						onClick={props.onClose}
 					></button>
 
-					<img src="src/components/App" alt="#" className="popup__image"/>
+					<img src={props.card.src} alt="#" className="popup__image" />
 
-					<p className="popup__subtitle"></p>
+					<p className="popup__subtitle">{props.card.name}</p>
 				</div>
 			</div>
 		</div>

@@ -1,10 +1,14 @@
-import PopupWithForm from "./PopupWithForm";
+import PopupWithForm from './PopupWithForm';
 
 const PopupAddPlace = (props) => {
 	return (
 		<div>
-			<PopupWithForm name="add" title="Новое место" button="Создать" children={
-				<>
+			<PopupWithForm
+				name="add"
+				title="Новое место"
+				button="Создать"
+				children={
+					<>
 						<input
 							aria-label="Название"
 							type="text"
@@ -28,10 +32,11 @@ const PopupAddPlace = (props) => {
 							required
 						/>
 						<span className="popup__error add-link-error"></span>
-				</>
-			} isOpen={props.isOpen} onClose={props.onClose}/>
-
-
+					</>
+				}
+				isOpen={props.isOpen}
+				onClose={props.onClose}
+			/>
 		</div>
 	);
 };
