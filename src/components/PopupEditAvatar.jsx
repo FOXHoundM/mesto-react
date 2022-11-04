@@ -1,6 +1,22 @@
 import PopupWithForm from './PopupWithForm';
+import {useEffect, useRef} from "react";
 
-const PopupEditAvatar = ({isOpen, onClose}) => {
+const PopupEditAvatar = ({isOpen, onClose, onUpdateAvatar}) => {
+
+	const ref = useRef()
+
+	useEffect(() => {
+		ref.current.value = ''
+	})
+
+	const handleSubmit = (evt) => {
+		evt.preventDefault()
+
+		onUpdateAvatar({
+			avatar: ref.current.value
+		}, [])
+	}
+
 	return (
 		<div>
 			<PopupWithForm
@@ -9,8 +25,10 @@ const PopupEditAvatar = ({isOpen, onClose}) => {
 				button="Сохранить"
 				isOpen={isOpen}
 				onClose={onClose}
+				onSubmit={handleSubmit}
 			>
 				<input
+					ref={ref}
 					aria-label="Обновить аватар"
 					type="url"
 					className="popup__input popup__input_type_avatar"

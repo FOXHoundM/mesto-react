@@ -1,42 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Card from './Card';
-import Api from "../utils/Api";
+import {CurrentUserContext} from "../contexts/CurrentUserContext";
 
-const api = new Api({
-	url: 'https://mesto.nomoreparties.co/v1/cohort-50',
-	headers: {
-		authorization: '1d5fb42f-083e-4754-bc11-0941caf4871f',
-		'Content-type': 'application/json',
-	},
-});
 
-const Main = ({onCardDelete, onCardClick, onAddPlace, onEditAvatar, onEditProfile}) => {
-	const [userName, setUserName] = useState('');
-	const [userAvatar, setUserAvatar] = useState('');
-	const [userDescription, setUserDescription] = useState('');
-	const [cards, setCards] = useState([]);
+const Main = ({cards, onCardClick, onCardLike, onCardDelete, onAddPlace, onEditAvatar, onEditProfile}) => {
 
-	useEffect(() => {
-		api.getUserInfo()
-			.then((data) => {
-				setUserName(data);
-				setUserDescription(data);
-				setUserAvatar(data);
-			})
-			.catch((err) => {
-				console.log(`Ошибка: ${err}`);
-			});
-	}, []);
-
-	useEffect(() => {
-		api.getInitialCards()
-			.then((res) => {
-				setCards(res);
-			})
-			.catch((err) => {
-				console.log(`Ошибка: ${err}`);
-			});
-	}, []);
+	const currentUser = React.useContext(CurrentUserContext);
 
 	return (
 		<div>
@@ -45,12 +14,12 @@ const Main = ({onCardDelete, onCardClick, onAddPlace, onEditAvatar, onEditProfil
 					<div
 						className="profile__avatar"
 						onClick={onEditAvatar}
-						style={{ backgroundImage: `url(${userAvatar.avatar})` }}
+						style={{backgroundImage: `url(${currentUser.avatar})`}}
 					></div>
 
 					<div className="profile__info">
-						<h1 className="profile__title">{userName.name}</h1>
-						<p className="profile__subtitle">{userDescription.about}</p>
+						<h1 className="profile__title">{currentUser.name}</h1>
+						<p className="profile__subtitle">{currentUser.about}</p>
 						<button
 							className="profile__edit-button"
 							type="button"
@@ -73,8 +42,12 @@ const Main = ({onCardDelete, onCardClick, onAddPlace, onEditAvatar, onEditProfil
 							<Card
 								key={item._id}
 								card={item}
+								link={item.link}
+								name={item.name}
+								likes={item.likes.length}
 								onCardClick={onCardClick}
 								onCardDelete={onCardDelete}
+								onCardLike={onCardLike}
 							/>
 						))}
 					</ul>

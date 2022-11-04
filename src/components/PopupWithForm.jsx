@@ -1,4 +1,4 @@
-const PopupWithForm = ({name, title, button, children, isOpen, onClose}) => {
+const PopupWithForm = ({name, title, button, children, isOpen, onClose, onSubmit}) => {
 	return (
 		<div>
 			<div
@@ -16,11 +16,11 @@ const PopupWithForm = ({name, title, button, children, isOpen, onClose}) => {
 
 					<h2 className="popup__title">{title}</h2>
 
-					<form className={`popup__form`} name={name} noValidate>
+					<form className={`popup__form`} name={name} noValidate onSubmit={onSubmit}>
+
 						{children}
 
 						<button
-							disabled
 							className="popup__save-button"
 							type="submit"
 							aria-label={`${button}`}
