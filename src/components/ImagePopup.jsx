@@ -14,7 +14,7 @@ const ImagePopup = ({card, onClose}) => {
 						onClick={onClose}
 					></button>
 
-					<img src={card.src} alt="#" className="popup__image" />
+					<img src={card.src} alt={card.name} className="popup__image" />
 
 					<p className="popup__subtitle">{card.name}</p>
 				</div>

@@ -7,14 +7,14 @@ const PopupEditAvatar = ({isOpen, onClose, onUpdateAvatar}) => {
 
 	useEffect(() => {
 		ref.current.value = ''
-	})
+	}, [isOpen])
 
 	const handleSubmit = (evt) => {
 		evt.preventDefault()
 
 		onUpdateAvatar({
 			avatar: ref.current.value
-		}, [])
+		})
 	}
 
 	return (

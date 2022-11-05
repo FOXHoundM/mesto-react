@@ -10,7 +10,6 @@ import PopupDeleteConfirm from './PopupDeleteConfirm';
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
 import api from "../utils/Api";
 
-
 function App() {
 	const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
 	const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);

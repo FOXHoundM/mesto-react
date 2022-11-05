@@ -9,7 +9,7 @@ const PopupAddPlace = ({isOpen, onClose, onAddPlace}) => {
 	useEffect(() => {
 		setPlaceName('')
 		setPlaceLink('')
-	}, [])
+	}, [isOpen])
 
 	const handlePlaceNameChange = (evt) => {
 		setPlaceName(evt.target.value);
@@ -27,8 +27,6 @@ const PopupAddPlace = ({isOpen, onClose, onAddPlace}) => {
 			link: placeLink
 		})
 	}
-
-
 
 	return (
 		<div>
