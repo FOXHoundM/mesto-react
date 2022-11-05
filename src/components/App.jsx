@@ -19,7 +19,6 @@ function App() {
 	const [cards, setCards] = useState([]);
 	const [currentUser, setCurrentUser] = useState({});
 
-
 	useEffect(() => {
 		Promise.all([api.getUserInfo(), api.getInitialCards()])
 			.then(([user, cards]) => {
@@ -94,7 +93,6 @@ function App() {
 				console.log(`Ошибка: ${err}`)
 			})
 	}
-
 
 	const handleCardLike = (card) => {
 		const isLiked = card.likes.some(i => i._id === currentUser._id);

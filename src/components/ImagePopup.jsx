@@ -1,10 +1,8 @@
-const ImagePopup = ({card, onClose}) => {
+const ImagePopup = ({ card, onClose }) => {
 	return (
 		<div>
 			<div
-				className={`popup popup_image ${
-					card.state ? 'popup_opened' : ''
-				}`}
+				className={`popup popup_image ${card.state ? 'popup_opened' : ''}`}
 			>
 				<div className="popup__container popup__container_image">
 					<button

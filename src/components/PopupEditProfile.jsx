@@ -22,7 +22,7 @@ const PopupEditProfile = ({ isOpen, onClose, onUpdateUser }) => {
 	};
 
 	const handleSubmit = (evt) => {
-		console.log('clicked')
+		console.log('clicked');
 		evt.preventDefault();
 
 		onUpdateUser({

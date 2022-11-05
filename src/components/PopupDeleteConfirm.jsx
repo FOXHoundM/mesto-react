@@ -1,6 +1,6 @@
 import PopupWithForm from './PopupWithForm';
 
-const PopupDeleteConfirm = ({isOpen, onClose}) => {
+const PopupDeleteConfirm = ({ isOpen, onClose }) => {
 	return (
 		<div>
 			<PopupWithForm

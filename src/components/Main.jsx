@@ -1,10 +1,16 @@
 import React from 'react';
 import Card from './Card';
-import {CurrentUserContext} from "../contexts/CurrentUserContext";
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-
-const Main = ({cards, onCardClick, onCardLike, onCardDelete, onAddPlace, onEditAvatar, onEditProfile}) => {
-
+const Main = ({
+	cards,
+	onCardClick,
+	onCardLike,
+	onCardDelete,
+	onAddPlace,
+	onEditAvatar,
+	onEditProfile,
+}) => {
 	const currentUser = React.useContext(CurrentUserContext);
 
 	return (
@@ -14,7 +20,7 @@ const Main = ({cards, onCardClick, onCardLike, onCardDelete, onAddPlace, onEditA
 					<div
 						className="profile__avatar"
 						onClick={onEditAvatar}
-						style={{backgroundImage: `url(${currentUser.avatar})`}}
+						style={{ backgroundImage: `url(${currentUser.avatar})` }}
 					></div>
 
 					<div className="profile__info">
